@@ -1,0 +1,15 @@
+name: Nom de la branche
+
+on:
+  push:
+    branches:
+      - Dev
+      - Val
+      - Prod
+
+jobs:
+  afficher-branche:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher la branche
+        run: echo "Je tourne sur la branche : ${{ github.ref_name }}"

@@ -1,0 +1,51 @@
+name: Division
+
+on:
+  push:
+    branches:
+      - Dev
+      - Val
+      - Prod
+
+jobs:
+  dev:
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'Dev'
+    steps:
+      - name: Diviser par 2
+        run: |
+          NOMBRE=100
+          RESULTAT=$((NOMBRE / 2))
+          echo "Résultat Dev (÷2) : $RESULTAT"
+          if [ $((RESULTAT % 2)) -ne 0 ]; then
+            echo "Nombre impair, arrêt !"
+            exit 1
+          fi
+
+  val:
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'Val'
+    steps:
+      - name: Diviser par 4
+        run: |
+          NOMBRE=100
+          RESULTAT=$((NOMBRE / 4))
+          echo "Résultat Val (÷4) : $RESULTAT"
+          if [ $((RESULTAT % 2)) -ne 0 ]; then
+            echo "Nombre impair, arrêt !"
+            exit 1
+          fi
+
+  prod:
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'Prod'
+    steps:
+      - name: Diviser par 8
+        run: |
+          NOMBRE=100
+          RESULTAT=$((NOMBRE / 8))
+          echo "Résultat Prod (÷8) : $RESULTAT"
+          if [ $((RESULTAT % 2)) -ne 0 ]; then
+            echo "Nombre impair, arrêt !"
+            exit 1
+          fi
