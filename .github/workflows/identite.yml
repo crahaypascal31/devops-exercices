@@ -1,4 +1,4 @@
-name: Identité
+name: Identite
 
 on: [push]
 
@@ -7,16 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Afficher le nom
-        run: echo "Nom : ${{ vars.NOM }}"
+        run: echo "Nom ${{ vars.NOM }}"
 
   prenom:
     runs-on: ubuntu-latest
     steps:
-      - name: Afficher le prénom
-        run: echo "Prénom : ${{ vars.PRENOM }}"
+      - name: Afficher le prenom
+        run: echo "Prenom ${{ vars.PRENOM }}"
 
   email:
     runs-on: ubuntu-latest
     steps:
-      - name: Afficher l'email
-        run: echo "Email : ${{ vars.EMAIL }}"
+      - name: Afficher email
+        run: echo "Email ${{ vars.EMAIL }}"
